@@ -4,8 +4,8 @@
 - [Joaquín Aravena](https://github.com/JoaquinAO "Joaquín Aravena") (Bitácora)
 - [Cristian Galleguillos](https://github.com/Shpm21 "Cristian Galleguillos") (Coordinador)
 ### Bitácora
-- [Ver Bitácora](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/main/docs/BITACORA.md "Ver Bitácora")
+- [Ver Bitácora](https://www.google.com/ "Ver Bitácora")
 ### Resumen
 
 ### Documentos
-- [Reporte Técnico](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/main/docs/README.md "Reporte Técnico")
+- [Reporte Técnico](https://www.google.com/ "Reporte Técnico")
