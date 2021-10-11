@@ -9,4 +9,4 @@
 ### Resumen
 
 ### Documentos
-- [Reporte Técnico](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/README.md "Reporte Técnico")
+- [Reporte Técnico](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/main/docs/README.md "Reporte Técnico")
