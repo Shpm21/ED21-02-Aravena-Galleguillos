@@ -5,7 +5,7 @@ Alumnos:
 * Joaquín Aravena (Bitácora)
 * Cristian Galleguillos (Coordinador)
 
-##Resumen
+## Resumen
 > En esta actividad, se realizaron las siguientes actividades:
 * Instalación de la librería OpenCV en CLion.
 * Realizar historia de usuario número 1 del taller de Estructura de Datos, la cual consiste en crear un algoritmo en conjunto con la librería OpenCV que dibuje un rectángulo en los rostros que fueron correctamente detectados.
