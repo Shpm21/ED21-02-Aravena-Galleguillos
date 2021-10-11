@@ -44,6 +44,7 @@ CascadeClassifier faceCascade;
 ## 3. Resultados obtenidos
 El resultado del código que implementamos es el siguiente:
 
+[![Resultado](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/images/resultado_release0.1.png "Resultado")](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/images/resultado_release0.1.png "Resultado")
 ## 4. Conclusiones
 ## Anexo A: Instalación librerías OpenCV
 **Para ambos casos hay que descargar la versión 4.5.2**
@@ -59,7 +60,6 @@ El resultado del código que implementamos es el siguiente:
 El IDE utilizado para este taller es CLion descargado desde: [https://www.jetbrains.com/es-es/clion/download/#section=windows](https://www.jetbrains.com/es-es/clion/download/#section=windows)
 ## Configuración librerías OpenCV en CLion
 Al momento de crear un proyecto en CLion se crea un archivo llamado **CMakeList.txt** en el archivo mencionado anteriormente debemos agregar las siguientes líneas:
-
 set(OpenCV_DIR "...\\opencv\\build\\x64\\mingw\\lib")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
