@@ -1,4 +1,4 @@
-[![Logo](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/main/docs/images/logo.png "Logo")](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/main/docs/images/logo.png "Logo")
+[![Logo](https://github.com/jbekios/UCN-EDATOS-2021/blob/main/docs/images/60x60-ucn-negro.png "Logo")](https://github.com/jbekios/UCN-EDATOS-2021/blob/main/docs/images/60x60-ucn-negro.png "Logo")
 # Proyecto: Detección y reidentificación de caras en secuencias de imágenes o video
 ## Curso: Estructura de Datos
 ### Integrantes
@@ -9,4 +9,4 @@
 ### Resumen
 
 ### Documentos
-- [Reporte Técnico](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/main/docs/README.md "Reporte Técnico")
+- [Reporte Técnico](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/README.md "Reporte Técnico")
