@@ -1,6 +1,6 @@
-#Informe Técnico
-##Curso: estructura de datos
-####Detección y reidentificación de caras en secuencias de imágenes o video
+# Informe Técnico
+## Curso: estructura de datos
+#### Detección y reidentificación de caras en secuencias de imágenes o video
 Alumnos:
 * Joaquín Aravena (Bitácora)
 * Cristian Galleguillos (Coordinador)
