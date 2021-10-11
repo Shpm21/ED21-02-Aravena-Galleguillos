@@ -64,4 +64,4 @@ set(OpenCV_DIR "...\\opencv\\build\\x64\\mingw\\lib")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 target_link_libraries(Test ${OpenCV_LIBS})
-Basta con reiniciar el archivo **CMakeList.txt** y CLion para que funcione OpenCV
+Basta con reiniciar el archivo **CMakeList.txt** y CLion para que funcione OpenCV.
