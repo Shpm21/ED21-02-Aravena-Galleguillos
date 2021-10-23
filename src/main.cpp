@@ -1,36 +1,51 @@
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/highgui.hpp>
+#include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
-#include <opencv2/objdetect.hpp>
+#include <opencv2/videoio.hpp>
+#include <opencv2/highgui.hpp>
+#include "logic/LinkedList.h"
 #include <iostream>
 
-using std::vector;
-using std::string;
-
-using cv::Mat;
-using cv::imread;
-using cv::imshow;
-using cv::waitKey;
-using cv::Rect;
-using cv::CascadeClassifier;
-using cv::Scalar;
-using cv::rectangle;
+using namespace std;
+using namespace cv;
 
 int main() {
-    string path = "D:/Proyectos/CLion/Taller/src/resources/photo.jpg";
-    Mat img = imread(path);
+    //Ruta donde se encuentra el video
+    const string pathToVideo = "D:/Proyectos/CLion/Taller/src/resources/video.mp4";
+
+    VideoCapture video(pathToVideo);
+
+    //Verifica si se pudo cargar el video
+    if (!video.isOpened()) {
+        cout << "No se pudo abrir la referencia " << pathToVideo << endl;
+        return -1;
+    }
 
     CascadeClassifier faceCascade;
     faceCascade.load("D:/Proyectos/CLion/Taller/src/resources/haarcascade_frontalface_default.xml");
 
+    //Color del detector de caras
+    Scalar drawColor = Scalar(0, 0, 255);
+
+    Mat frame;
     vector<Rect> faces;
-    faceCascade.detectMultiScale(img, faces, 1.1, 10);
+    LinkedList array = LinkedList();
 
-    for (int i = 0; i < faces.size(); i++)
-        rectangle(img, faces[i].tl(), faces[i].br(), Scalar(0, 0, 255), 3);
+    while(video.read(frame)) {
 
-    imshow("Image", img);
-    waitKey(3000);
-    return 0;
+        faceCascade.detectMultiScale(frame, faces, 1.1, 25);
+
+        for (auto & area : faces){
+            rectangle(frame, area.tl(), area.br(), drawColor, 3);
+            Identidad i = Identidad(area);
+            array.add(i);
+            cout << area << endl;
+        }
+
+        //Muestra los frames
+        imshow("Video", frame);
+        waitKey(1);
+    }
+    cout << array.size();
+    return EXIT_SUCCESS;
 }
 
