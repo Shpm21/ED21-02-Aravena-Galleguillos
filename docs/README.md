@@ -73,7 +73,7 @@ Luego, utilizamos un ciclo while para que se ejecute el video y el programa comi
 ```
 ## 3. Resultados obtenidos
 El resultado del código que implementamos es el siguiente:
-[![Resultado](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/images/resultado_release0.2.png "Resultado")](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.2/docs/images/resultado_release0.1.png "Resultado")
+[![Resultado](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.2/docs/images/resultado_release0.2.png "Resultado")](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.2/docs/images/resultado_release0.1.png "Resultado")
 ## 4. Conclusiones
 ## Anexo A: Instalación librerías OpenCV
 **Para ambos casos hay que descargar la versión 4.5.2**
