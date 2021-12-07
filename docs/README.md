@@ -22,24 +22,65 @@ Construir un sistema capaz de detectar rostros, el sistema debe ser capaz de dib
 
 ### 1.3 Solución propuesta
 Software capaz de dibujar un rectángulo en todos los rostros detectados de una fotografía.
+
+Software capaz de observar los rostros mas comunes. 
+
+Software capaz de establecer hora de inicio y término de sesion por día.
+
+Software capaz de realizar un listado por sesión de las identidades detectadas.
 ## 2. Materiales y métodos
 ### 2.1 Instalación
 OpenCV: Open Source Computer Vision es una libreria de c y c++ que provee una infraestructura para aplicaciones de visión artificial, esta librería permite, en este caso, detectar objetos (rostros humanos).
 ### 2.2 Diseño
+
+------------
+    ├── src         		<- Source code for use in this project.
+    │   ├── logic			<- Contains the classes used in the program.
+    │   │   │   └── header
+    │   │   │   │   ├── BinaryTree.h
+    │   │   │   │   ├── BinaryTreeNode.h
+    │   │   │   │   ├── FaceDetector.h
+    │   │   │   │   ├── ImageCoding.h
+    │   │   ├── BinaryTree.cpp
+	│   │   ├── FaceDetector.cpp
+	│   │   └── ImageCoding.cpp
+    │   ├── resources	<- Contains the images / videos used for testing.
+    │   │   ├── haarscascade_frontalface_default.xml
+	│   │   ├── photo.jpg
+	│   │   └── video.mp4
+    │   └── main.cpp
+--------
 ### 2.3 Implementación
 #### Detector de caras
 El detector de caras utilizado fue el Haar Cascade, el cual permite detectar objetos, en este caso, se utilizó el frontal face, para detectar los rostros en las imágenes que utilizamos de prueba.
+Los rostros detectados se fueron guardando en el arbol binario que implementamos.
 ```c++
-CascadeClassifier faceCascade;
-    faceCascade.load("D:/Proyectos/CLion/Taller/src/resources/haarcascade_frontalface_default.xml");
+for (string im : imagesStr) {
+        cout << im << endl;
+        frame = imread(im, IMREAD_COLOR);
 
-    vector<Rect> faces;
-    faceCascade.detectMultiScale(img, faces, 1.1, 10);
 
-    for (int i = 0; i < faces.size(); i++)
-        rectangle(img, faces[i].tl(), faces[i].br(), Scalar(0, 0, 255), 3);
+        auto faces = faceDetector.detectRectangles(frame);
 
-    imshow("Image", img);
+        icoding.setImage(frame);
+        auto faceCodingGray = icoding.codeGray(faces, true, Size(25, 25));
+        Mat colorImage;
+        Mat newSize;
+        int posX = 10;
+        for (const auto &cf : faceCodingGray){
+            abb.insert(cf); //ACA SE UTILIZA EL ARBOL BINARIO
+            cvtColor(cf, colorImage, COLOR_GRAY2BGR);
+            resize(colorImage, newSize, Size(40, 40), INTER_LINEAR);
+            newSize.copyTo(frame(Rect(posX, 10, newSize.cols, newSize.rows)));
+            posX += 40 + 10;
+        }
+
+        for(const auto &fm : faces){
+            rectangle(frame, fm, drawColor, 4);
+        }
+        imshow("Image: ", frame);
+        waitKey(0);
+    }
 ```
 ## 3. Resultados obtenidos
 El resultado del código que implementamos es el siguiente:

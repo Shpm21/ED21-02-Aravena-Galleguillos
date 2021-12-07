@@ -1,51 +1,147 @@
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
-#include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
-#include "logic/LinkedList.h"
+#include "logic/header/FaceDetector.h"
+#include "logic/header/ImageCoding.h"
+#include "logic/header/BinaryTree.h"
 #include <iostream>
 
 using namespace std;
 using namespace cv;
 
+BinaryTree detectFaces();
+BinaryTree guardMenu();
+string gMenu();
+void adminMenu();
+string aMenu();
+
 int main() {
-    //Ruta donde se encuentra el video
-    const string pathToVideo = "D:/Proyectos/CLion/Taller/src/resources/video.mp4";
+    BinaryTree abb;
 
-    VideoCapture video(pathToVideo);
+    while (true) {
+        string option;
+        cout << "[1] Menu Guardia.\n[2] Menu Administrador.\n[3] Salir.\nElige una opcion: " << endl;
+        cin >> option;
+        if (option == "1") {
+            abb = guardMenu();
+        } else if (option == "2") {
+            adminMenu();
+        } else if (option == "3") {
+            break;
+        } else {
+            cout << "La opcion ingresada no es valida" << endl;
+        }
 
-    //Verifica si se pudo cargar el video
-    if (!video.isOpened()) {
-        cout << "No se pudo abrir la referencia " << pathToVideo << endl;
-        return -1;
     }
 
-    CascadeClassifier faceCascade;
-    faceCascade.load("D:/Proyectos/CLion/Taller/src/resources/haarcascade_frontalface_default.xml");
+    BinaryTreeNode* root = abb.getRoot();
+    BinaryTreeNode* otro = root->right;
+    imshow("Imagen del arbol: ", abb.getRoot()->image);
+    cout << "Veces que aparecio: " << root->timesAppeared << endl;
+    waitKey(0);
+    imshow("Imagen del arbol: ", otro->image);
+    waitKey(0);
 
+    return 0;
+}
+
+BinaryTree detectFaces() {
+    cout << "Presiona Q para salir" << endl;
+    vector<string> imagesStr;
+
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-007.jpeg");
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-008.jpeg");
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-024.jpeg");
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-025.jpeg");
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-026.jpeg");
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-046.jpeg");
+    imagesStr.push_back("C:/Users/z/Desktop/Nueva_carpeta/C++Projects/Taller1/ED21-02-Aravena-Galleguillos/src/resources/image-047.jpeg");
+    BinaryTree abb;
+    FaceDetector faceDetector;
+    ImageCoding icoding;
+    Mat frame;
     //Color del detector de caras
     Scalar drawColor = Scalar(0, 0, 255);
 
-    Mat frame;
-    vector<Rect> faces;
-    LinkedList array = LinkedList();
+    for (string im : imagesStr) {
+        cout << im << endl;
+        frame = imread(im, IMREAD_COLOR);
+        auto faces = faceDetector.detectRectangles(frame);
 
-    while(video.read(frame)) {
-
-        faceCascade.detectMultiScale(frame, faces, 1.1, 25);
-
-        for (auto & area : faces){
-            rectangle(frame, area.tl(), area.br(), drawColor, 3);
-            Identidad i = Identidad(area);
-            array.add(i);
-            cout << area << endl;
+        icoding.setImage(frame);
+        auto faceCodingGray = icoding.codeGray(faces, true, Size(25, 25));
+        Mat colorImage;
+        Mat newSize;
+        int posX = 10;
+        for (const auto &cf : faceCodingGray){
+            abb.insert(cf);
+            cvtColor(cf, colorImage, COLOR_GRAY2BGR);
+            resize(colorImage, newSize, Size(40, 40), INTER_LINEAR);
+            newSize.copyTo(frame(Rect(posX, 10, newSize.cols, newSize.rows)));
+            posX += 40 + 10;
         }
 
-        //Muestra los frames
-        imshow("Video", frame);
-        waitKey(1);
+        for(const auto &fm : faces){
+            rectangle(frame, fm, drawColor, 4);
+        }
+        imshow("Image: ", frame);
+        waitKey(0);
     }
-    cout << array.size();
-    return EXIT_SUCCESS;
+    while(true){
+        int pressKey = waitKey(10);
+        if (pressKey == 27 || pressKey == 113) break;
+    }
+    destroyAllWindows();
+    return abb;
+}
+
+BinaryTree guardMenu() {
+    cout << "Menu Guardia" << endl;
+    BinaryTree abb;
+    while (true) {
+        string option = gMenu();
+        if (option == "3") {
+            break;
+        } else if (option == "1") {
+            abb = detectFaces();
+        } else if (option == "2") {
+            cout << "option 2" << endl;
+        } else {
+            cout << "La opcion ingresada no es valida" << endl;
+        }
+    }
+    return abb;
+}
+
+string gMenu() {
+    string message = "[1] Observar rostros.\n[2] Observar ultimas 5 identidades.\n[3] Salir.\nElige una opcion: ";
+    string option;
+    cout << message << endl;
+    cin >> option;
+    return option;
+}
+
+void adminMenu() {
+    cout << "Menu Administrador" << endl;
+    while (true) {
+        string option = aMenu();
+        if (option == "3") {
+            break;
+        } else if (option == "1") {
+            cout << "OPTION 1" << endl;
+        } else if (option == "2") {
+            cout << "OPTION 2" << endl;
+        } else {
+            cout << "La opcion ingresada no es valida" << endl;
+        }
+    }
+}
+
+string aMenu() {
+    string message = "[1] Establecer hora de inicio y termino.\n[2] Almacenar Datos.\n[3] Salir.\nElige una opcion: ";
+    string option = 0;
+    cout << message << endl;
+    cin >> option;
+    return option;
 }
 
