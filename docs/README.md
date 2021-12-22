@@ -133,10 +133,13 @@ public:
 ## 3. Resultados obtenidos
 Se pudo obtener los resultados esperados en base a lo que entendimos de los requerimientos, obteniendo las imágenes y almacenando correctamente los datos pedidos.
 * Información pedida por el administrador (historia número 4):
+
 ![information](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_1.0/docs/images/information.png)
 * Imágenes en results/images (historia número 5):
+
 ![images](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_1.0/docs/images/imagenes.png)
 * Información pedida por el administrador (historia número 6):
+
 ![appearances](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_1.0/docs/images/appearances.png)
 ## 4. Conclusiones
 ## Anexo A: Instalación librerías OpenCV
