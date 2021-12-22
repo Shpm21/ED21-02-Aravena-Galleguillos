@@ -142,6 +142,9 @@ Se pudo obtener los resultados esperados en base a lo que entendimos de los requ
 
 ![appearances](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_1.0/docs/images/appearances.png)
 ## 4. Conclusiones
+Para ir cerrando ya este informe, debemos destacar que el taller fue algo complicado, algunas cosas nos tomaron harto tiempo para poder comprenderlas,
+pero terminamos este proyecto con una buena experiencia, ya que, aunque estuvo complicado, pudimos llevar a cabo la mayoría de las cosas que nos pedían,
+creemos firmemente en que estos conocimientos adquiridos nos servirán en el futuro, ya que las estructuras de datos son algo muy importante dentro de la programación.
 ## Anexo A: Instalación librerías OpenCV
 **Para ambos casos hay que descargar la versión 4.5.2**
 (1) Link de descarga de OpenCV: [https://opencv.org/releases/](https://opencv.org/releases/)
