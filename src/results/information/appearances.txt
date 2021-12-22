@@ -1,0 +1,10 @@
+Key: 1 Apariciones:
+Apareció en la posición 1 de la secuencia de imágenes
+Apareció en la posición 2 de la secuencia de imágenes
+Key: 3 Apariciones:
+Apareció en la posición 6 de la secuencia de imágenes
+Apareció en la posición 7 de la secuencia de imágenes
+Key: 2 Apariciones:
+Apareció en la posición 3 de la secuencia de imágenes
+Apareció en la posición 4 de la secuencia de imágenes
+Apareció en la posición 5 de la secuencia de imágenes

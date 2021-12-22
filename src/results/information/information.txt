@@ -1,0 +1,3 @@
+Key: 1, Veces que apareció: 2
+Key: 3, Veces que apareció: 2
+Key: 2, Veces que apareció: 3

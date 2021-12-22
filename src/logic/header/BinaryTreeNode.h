@@ -15,6 +15,7 @@ public:
     int timesAppeared;
     BinaryTreeNode *left;
     BinaryTreeNode *right;
+    std::vector<int> appearances;
 };
 
 

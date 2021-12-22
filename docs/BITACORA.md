@@ -11,3 +11,6 @@
 | 25/NOV | 	OBJ-9 | Implementar Nodo del Arbol Binario | Joaquín Aravena | 0.5 horas | 0.3 horas |
 | 06/DIC | 	OBJ-10 | Implementar Entrega release 3 | Joaquín Aravena / Cristian Galleguillos | 4 horas | 4 horas |
 | 06/DIC | 	OBJ-11 | Actualizar Informe y Bitácora del taller | Joaquín Aravena / Cristian Galleguillos | 4 horas | 4 horas |
+| 21/DIC | 	OBJ-11 | Implementar entregas restantes | Joaquín Aravena / Cristian Galleguillos | 0.5 | 0.5 |
+| 21/DIC | 	OBJ-11 | Terminar menu de usuarios | Joaquín Aravena / Cristian Galleguillos | 0.5 | 0.5 |
+| 22/DIC | 	OBJ-11 | Actualizar Informe y Bitácora del taller | Joaquín Aravena / Cristian Galleguillos | 4 horas | 4 horas |

@@ -7,28 +7,35 @@
 
 #include "opencv2/core.hpp"
 #include "BinaryTreeNode.h"
-
+#include <fstream>
 using namespace cv;
 class BinaryTree {
 private:
     int DIFFERENT = 1700;
     int SIMILAR = 1300;
-    /**
-     * Contador para asignar identificadores a las caras
-     */
     int counter;
+    int sequence;
     struct BinaryTreeNode* root;
     BinaryTreeNode* insert(BinaryTreeNode* node, Mat);
     void preOrder(BinaryTreeNode* node);
     double euclideanDistance(Mat, Mat);
+    void writeAppearances(BinaryTreeNode* node, std::ofstream* file);
+    void writeTotalTime(BinaryTreeNode* node, std::ofstream* file);
+    void writeImages(BinaryTreeNode* node);
+    void observeFiveIdentities(BinaryTreeNode* node, int cant);
 
 public:
     BinaryTree() {
         counter = 0;
         root = nullptr;
+        sequence = 1;
     }
     void insert(Mat);
     void preOrder();
+    void writeAppearances();
+    void writeTotalTime();
+    void writeImages();
+    void observeFiveIdentities();
 
 
     BinaryTreeNode* getRoot();

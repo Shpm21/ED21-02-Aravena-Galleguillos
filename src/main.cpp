@@ -12,7 +12,7 @@ using namespace cv;
 BinaryTree detectFaces();
 BinaryTree guardMenu();
 string gMenu();
-void adminMenu();
+void adminMenu(BinaryTree abb);
 string aMenu();
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
         if (option == "1") {
             abb = guardMenu();
         } else if (option == "2") {
-            adminMenu();
+            adminMenu(abb);
         } else if (option == "3") {
             break;
         } else {
@@ -33,15 +33,6 @@ int main() {
         }
 
     }
-
-    BinaryTreeNode* root = abb.getRoot();
-    BinaryTreeNode* otro = root->right;
-    imshow("Imagen del arbol: ", abb.getRoot()->image);
-    cout << "Veces que aparecio: " << root->timesAppeared << endl;
-    waitKey(0);
-    imshow("Imagen del arbol: ", otro->image);
-    waitKey(0);
-
     return 0;
 }
 
@@ -105,7 +96,7 @@ BinaryTree guardMenu() {
         } else if (option == "1") {
             abb = detectFaces();
         } else if (option == "2") {
-            cout << "option 2" << endl;
+            abb.observeFiveIdentities();
         } else {
             cout << "La opcion ingresada no es valida" << endl;
         }
@@ -114,32 +105,38 @@ BinaryTree guardMenu() {
 }
 
 string gMenu() {
-    string message = "[1] Observar rostros.\n[2] Observar ultimas 5 identidades.\n[3] Salir.\nElige una opcion: ";
+    string message = "[1] Observar rostos. \n[2] Observar ultimas 5 identidades.\n[3] Salir.\nElige una opcion: ";
     string option;
     cout << message << endl;
     cin >> option;
     return option;
 }
 
-void adminMenu() {
+void adminMenu(BinaryTree abb) {
     cout << "Menu Administrador" << endl;
     while (true) {
         string option = aMenu();
-        if (option == "3") {
+        if (option == "4") {
             break;
         } else if (option == "1") {
-            cout << "OPTION 1" << endl;
+            abb.writeTotalTime();
+            cout << "Las identidades han sido guardadas en docs/information/information.txt\n";
         } else if (option == "2") {
-            cout << "OPTION 2" << endl;
-        } else {
+            abb.writeImages();
+            cout << "Las imagenes han sido guardadas en docs/images\n";
+        } else if (option == "3") {
+            abb.writeAppearances();
+            cout << "La informacion de las apariciones ha sido guardada en dosc/information/appearances.txt\n";
+        }
+        else {
             cout << "La opcion ingresada no es valida" << endl;
         }
     }
 }
 
 string aMenu() {
-    string message = "[1] Establecer hora de inicio y termino.\n[2] Almacenar Datos.\n[3] Salir.\nElige una opcion: ";
-    string option = 0;
+    string message = "[1] Obtener identidades detectadas.\n[2] Almacenar imagenes.\n[3] Informacion de apariciones.\n[4] Salir.\nElige una opcion: ";
+    string option;
     cout << message << endl;
     cin >> option;
     return option;
