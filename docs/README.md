@@ -133,7 +133,7 @@ public:
 ## 3. Resultados obtenidos
 Se pudo obtener los resultados esperados en base a lo que entendimos de los requerimientos, primero veamos como se guardan las imágenes en results/images:
 
-![images](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_1.0/docs/images/imagenes.png "Imagenes")
+![imagenes](C:\Users\z\Desktop\Nueva_carpeta\C++Projects\Taller1\ED21-02-Aravena-Galleguillos\docs\images\imagenes.png)
 
 
 [![Resultado](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/images/resultado_release0.1.png "Resultado")](https://github.com/Shpm21/ED21-02-Aravena-Galleguillos/blob/release_0.1/docs/images/resultado_release0.1.png "Resultado")
